@@ -4,9 +4,10 @@
 // cd /pm
 // node test.js
 
-var webdriver = require('selenium-webdriver');
+var webdriver = require('selenium-webdriver'),
+    until = require('selenium-webdriver').until;
 
-var keyword = "chris le twitter";
+var keyword = "twitter";
 
 var driver = new webdriver.Builder().
    usingServer('http://localhost:4444/wd/hub').
@@ -16,13 +17,17 @@ var driver = new webdriver.Builder().
 driver.get('http://www.google.com');
 driver.findElement(webdriver.By.name('q')).sendKeys(keyword);
 driver.findElement(webdriver.By.name('btnG')).click();
-driver.wait(function() {
+/*driver.wait(function() {
   return driver.getTitle().then(function(title) {
     driver.getPageSource().then(function(html) {
       console.log(html);
       return true;
     });
   });
-}, 1000);
+}, 1000);*/
+driver.wait(until.titleIs('twitter - Google Search'), 1000);
+driver.getPageSource().then(function(html) {
+    console.log(html);
+});
 
 driver.quit();
