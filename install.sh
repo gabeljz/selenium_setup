@@ -9,5 +9,6 @@ function run_log {
 
 sudo rm /selenium/stdout.log
 sudo rm /selenium/stderr.log
+run_log locale.sh
 run_log nodejs.sh
 run_log selenium.sh
