@@ -1,13 +1,13 @@
 #!/bin/bash
 
 # To run this file
-# $ sudo bash /sel/install.sh
+# $ sudo bash /selenium/install.sh
 
 function run_log {
-    (sudo bash /sel/$1 | sudo tee -a /sel/stdout.log) 3>&1 1>&2 2>&3 | sudo tee -a /sel/stderr.log
+    (sudo bash /selenium/$1 | sudo tee -a /selenium/stdout.log) 3>&1 1>&2 2>&3 | sudo tee -a /selenium/stderr.log
 }
 
-sudo rm /sel/stdout.log
-sudo rm /sel/stderr.log
+sudo rm /selenium/stdout.log
+sudo rm /selenium/stderr.log
 run_log nodejs.sh
 run_log selenium.sh

@@ -34,7 +34,7 @@ else
   mv chromedriver /usr/local/bin
   mv selenium-server-standalone-2.35.0.jar /usr/local/bin
 
-  cd /sel
+  cd /selenium
   npm install selenium-webdriver
 
 
@@ -44,7 +44,7 @@ fi
 
 # Start Xvfb, Chrome, and Selenium in the background
 export DISPLAY=:10
-cd /sel
+cd /selenium
 
 echo "Starting Xvfb ..."
 Xvfb :10 -screen 0 1366x768x24 -ac &
